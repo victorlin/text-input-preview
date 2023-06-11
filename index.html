@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <p>Paste some text on the left side. It will be displayed on the right side.</p>
+
+    <div style="display: flex;">
+
+        <div style="flex: 50%; padding-right: 1em">
+            <p>Input</p>
+        </div>
+
+        <div style="flex: 50%;">
+            <span>Preview</span>
+
+            <select onchange="setFontFamily(this.value);">
+                <option value="Times New Roman" elected="selected">Times New Roman</option>
+                <option value="Arial">Arial</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="cursive">cursive</option>
+            </select>
+
+            <label for="fontSize">Font size:</label>
+            <input type="number" id="fontSize" min="10" max="40" value="16" onchange="setFontSize(this.value);" />
+
+        </div>
+
+    </div>
+
+    <div style="display: flex;">
+
+        <div style="flex: 50%; padding-right: 1em">
+            <textarea type="text" id="input" rows="10" style="width: 100%"></textarea>
+        </div>
+    
+        <div id="preview" style="flex: 50%; font-size: 16px"></div>
+
+    </div>
+
+    <script type="text/javascript">
+        // https://javascript.info/events-change-input#event-input
+        input.oninput = function () {
+            preview.innerHTML = input.value;
+        };
+
+        // https://www.tutorialspoint.com/how-to-change-font-style-using-drop-down-list-in-javascript
+        function setFontFamily(newFontFamily) {
+            preview.style.fontFamily = newFontFamily;
+        };
+
+        function setFontSize(newFontSize) {
+            preview.style.fontSize = newFontSize + "px";
+        };
+    </script>
+</body>
+
+</html>
