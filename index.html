@@ -7,15 +7,16 @@
 
 <body>
 
-    <p>Paste some text on the left side. It will be displayed on the right side.</p>
+    <p>Paste some text in the input. It will be displayed in the preview.</p>
 
-    <div style="display: flex;">
+    <div style="display: flex; flex-wrap: wrap;">
 
-        <div style="flex: 50%; padding-right: 1em">
+        <div style="flex: 1 1 300px; padding-right: 1em">
             <p>Input</p>
+            <textarea type="text" id="input" rows="10" style="width: 100%"></textarea>
         </div>
 
-        <div style="flex: 50%;">
+        <div style="flex: 1 1 300px;">
             <span>Preview</span>
 
             <select onchange="setFontFamily(this.value);">
@@ -28,17 +29,8 @@
             <label for="fontSize">Font size:</label>
             <input type="number" id="fontSize" min="10" max="40" value="30" onchange="setFontSize(this.value);" />
 
+            <div id="preview" style="font-size: 30px; font-family: cursive;"></div>
         </div>
-
-    </div>
-
-    <div style="display: flex;">
-
-        <div style="flex: 50%; padding-right: 1em">
-            <textarea type="text" id="input" rows="10" style="width: 100%"></textarea>
-        </div>
-    
-        <div id="preview" style="flex: 50%; font-size: 30px; font-family: cursive;"></div>
 
     </div>
 
